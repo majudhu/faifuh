@@ -2,31 +2,36 @@
 <html>
 <head><title>convulator</title></head>
 <body>
-<p><input id="i2m_in" type="text"> in
-= <input id="i2m_mm" type="number" readonly> mm
+  <h1>Convert between Millimeters and Inches in fractional form</h1>
+  <p>
+    <input id="i2m_in" type="text"> in
+    = <input id="i2m_mm" type="number" readonly> mm
+  </p>
 
-<p><input id="m2i_mm" type="number"> mm
-= <input id="m2i_in" type="text" readonly> in
+  <p>
+    <input id="m2i_mm" type="number"> mm
+    = <input id="m2i_in" type="text" readonly> in
+  </p>
 
-<script>
-var i2m_in = document.getElementById('i2m_in');
-var i2m_mm = document.getElementById('i2m_mm');
-var m2i_mm = document.getElementById('m2i_mm');
-var m2i_in = document.getElementById('m2i_in');
+  <script>
+  var i2m_in = document.getElementById('i2m_in');
+  var i2m_mm = document.getElementById('i2m_mm');
+  var m2i_mm = document.getElementById('m2i_mm');
+  var m2i_in = document.getElementById('m2i_in');
 
-i2m_in.addEventListener('input', function() {
+  i2m_in.addEventListener('input', function() {
     var inch = parseInt(i2m_in.value.substring(0, i2m_in.value.indexOf(' ')));
     var eighth = parseInt(i2m_in.value.substring(i2m_in.value.indexOf(' '), i2m_in.value.indexOf('/')));
     i2m_mm.value = inch;
     //i2m_mm.value = ((inch + eighth / 8) * 25.4).toFixed();
-});
-m2i_mm.addEventListener("input", function() {
+  });
+  m2i_mm.addEventListener("input", function() {
     var mm = parseFloat(m2i_mm.value);
     var eighth = Math.round(mm * 8 / 25.4);
     var inch = Math.floor(eighth / 8);
     eighth %= 8;
     m2i_in.value = (inch == 0 ? '' : inch) + (eighth == 0 ? '' : ' ' + eighth + '/8');
-});
-</script>
+  });
+  </script>
 </body>
 </html>
