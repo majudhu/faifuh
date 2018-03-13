@@ -1,0 +1,29 @@
+<html>
+<head><title>patas</title></head>
+<body>
+<input type="number" id="n">
+<pre id="p"></pre>
+<script>
+var p = document.getElementById("p");
+
+document.getElementById("n").addEventListener("change", function() {
+    var n = document.getElementById("n").valueAsNumber;
+
+    p.textContent = "";
+    
+    for (var i = n; i > 0; i--) {
+        p.textContent += "if (";
+        for (var j = 1; j < i; j++) {
+            p.textContent += "n" + j + " > n" + i;
+            p.textContent += (j < i - 1) ? " && " : "";
+        } 
+        p.textContent += ") {\n";
+        for (var j = 1; j < i; j++) {
+            p.textContent += "m" + i + "=n" + i + "; ";
+        }
+        p.textContent += "\n"
+    }
+});
+</script>
+</body>
+</html>

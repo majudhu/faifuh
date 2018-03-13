@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>float</title>
+    <style>
+        table, th, td {border:1px solid; border-collapse: collapse;}
+        td {width: 1.5em; text-align: center;}
+        .sign {background-color: grey;}
+        .expo {background-color: pink;}
+        .mant {background-color: lavender;}
+    </style>
+</head>
+<body>
+    <h2>Base Conversion</h2>
+    From Base: <input id="bco_ib" type="number" min="2" value="10">
+    Number: <input id="bco_in" value="0"><br>
+    To Base: <input id="bco_ob" type="number" min="2" max="36" value="2">
+    Number: <span id="bco_on"></span>
+
+
+    <h2>decimal to float</h2>
+    Number: <input type="number" id="d2f_number"><br>
+    Exponent size: <input type="number" id="d2f_esize" min="1" max="11" value="6"> bits<br>
+    Mantissa size: <input type="number" id="d2f_msize" min="1" max="53" value="9"> bits<br>
+    Normalized binary: <pre id="d2f_normb"></pre>
+    <table>
+        <thead>
+            <tr>
+                <th class="sign">Sign</th>
+                <th class="expo" id="d2f_tbl_e">Exponent</th>
+                <th class="mant" id="d2f_tbl_m">Mantissa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="d2f_bitnos">
+                <td class="sign">0</td>
+            </tr>
+            <tr id="d2f_bitval">
+                <td class="sign"></td>
+            </tr>
+
+        </tbody>
+    </table>
+<script>
+"use strict";
+
+var bco_ib = document.getElementById("bco_ib");
+var bco_in = document.getElementById("bco_in");
+var bco_ob = document.getElementById("bco_ob");
+var bco_on = document.getElementById("bco_on");
+var d2f_number = document.getElementById("d2f_number");
+var d2f_esize = document.getElementById("d2f_esize");
+var d2f_msize = document.getElementById("d2f_msize");
+var d2f_normb = document.getElementById("d2f_normb");
+var d2f_tbl_e = document.getElementById("d2f_tbl_e");
+var d2f_tbl_m = document.getElementById("d2f_tbl_m");
+var d2f_bitnos = document.getElementById("d2f_bitnos");
+var d2f_bitval = document.getElementById("d2f_bitval");
+//var  = document.getElementById("");
+
+bco_in.addEventListener("input", function() {
+    var b = bco_ib.valueAsNumber; // from base
+    var o = bco_ob.valueAsNumber; // to base
+
+    bco_on.textContent = "";
+
+    if (b === 10) {
+        var n = Number(bco_in.value);
+        var i = Math.floor(Math.abs(n)); // integer part
+        var f = Math.abs(n) - i; // fraction part
+        while (i > 0) {
+            var r = i%o;
+            bco_on.textContent = ((r < 10) ? r : String.fromCharCode(55 + r)) + bco_on.textContent;
+            i = Math.floor(i/o);
+        }
+        
+    }
+
+})
+
+d2f_number.addEventListener("input", function() {
+    var n = d2f_number.valueAsNumber; // decimal number
+    var p = d2f_esize.valueAsNumber; // size of exponent
+    var q = d2f_msize.valueAsNumber; // size of mantissa
+    var i = Math.floor(Math.abs(n)); // integer part
+    var f = Math.abs(n) - i; // fraction part
+    var e = 0; // exponent
+    var b = Math.pow(2, p - 1) - 1; // exponent bias
+    var m = ""; // Mantissa: binary representaion as a string
+
+    d2f_tbl_e.colSpan = p;
+    d2f_tbl_m.colSpan = m;
+
+    while (d2f_bitnos.cells.length > 1+p+q) {
+        d2f_bitnos.deleteCell(-1);
+    }
+    while (d2f_bitnos.cells.length < 1+p+q) {
+        cell = d2f_bitnos.insertCell();
+        cell.textContent = d2f_bitnos.cells.length-1;
+        cell.className = d2f_bitnos.cells.length < 2+p ? "expo" : "mant";
+    }
+    while (d2f_bitval.cells.length > 1) {
+        d2f_bitval.deleteCell(1);
+    }
+    d2f_bitval.cells[0].textContent = (n < 0) ? "1" : "0"; // sign bit
+
+    // If the number does not have an integer part, find the first non-zero or
+    // one digit of the binary representaion. The number is multipled by two
+    // while decrementing the exponent each time. Until exponent is minimum.
+    if (i === 0) {
+        while (f < 1 && e > -b) {
+            f*=2;
+            e--;
+        }
+    }
+
+    // Binary representaion of the whole part
+    // The first digit (most significant and last in the loop) is skipped as it
+    // is not included in the mantissa. If the integer part is just a 1 or 0,
+    // neither mantissa nor exponent modified, it is kept it was initialised.
+    // Hence 0 or 1 has the same representaion. Until exponent is maximum.
+    while (i > 1 && e < b + 1) {
+        m = i%2 + m;
+        i = Math.floor(i/2);
+        e++;
+    }
+
+    // append binary representation of fractional part to mantissa
+    // If its the first
+    while (m.length < q) {
+        f = f - Math.floor(f);
+        f = f*2;
+        m = m + Math.floor(f);
+    }
+
+    // truncate to size
+    m = m.substr(0, q);
+
+    d2f_normb.textContent = ((n < 0) ? "-" : "") + "1." + m + "*2^" + e;
+
+    e = e + b;
+    while (d2f_bitval.cells.length < 1+p) { // binary representaion of exponent
+        var cell = d2f_bitval.insertCell(1);
+        cell.textContent = e%2;
+        cell.className = "expo";
+        e = Math.floor(e/2);
+    }
+
+    while (d2f_bitval.cells.length < 1+p+q) {
+        var cell = d2f_bitval.insertCell();
+        cell.textContent = m[d2f_bitval.cells.length-p-2];
+        cell.className = "mant";
+    }
+    //d2f_bitval.cells[2].textContent = m;
+});
+</script>
+</body>
+</html>

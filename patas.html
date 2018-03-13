@@ -1,0 +1,142 @@
+<html>
+<head><title>patas</title></head>
+<body>
+<input type="number" id="i1">
+<input type="number" id="i2">
+<input type="number" id="i3">
+<input type="number" id="i4">
+<input type="number" id="i5">
+<input type="number" id="i6">
+<button id="r">random</button>
+<p id="p"></p>
+<script>
+var i1 = document.getElementById("i1");
+var i2 = document.getElementById("i2");
+var i3 = document.getElementById("i3");
+var i4 = document.getElementById("i4");
+var i5 = document.getElementById("i5");
+var i6 = document.getElementById("i6");
+var r = document.getElementById("r");
+var p = document.getElementById("p");
+
+function patas() {
+    var n1 = i1.valueAsNumber;
+    var n2 = i2.valueAsNumber;
+    var n3 = i3.valueAsNumber;
+    var n4 = i4.valueAsNumber;
+    var n5 = i5.valueAsNumber;
+    var n6 = i6.valueAsNumber;
+    
+    if (n1 > n2 && n1 > n3 && n1 > n4 && n1 > n5 && n1 > n6) {
+        m6 = n1;
+        n1 = n2;
+        n2 = n3;
+        n3 = n4;
+        n4 = n5;
+        n5 = n6;
+    } else if (n2 > n3 && n2 > n4 && n2 > n5 && n2 > n6) {
+        m6 = n2;
+        n2 = n3;
+        n3 = n4;
+        n4 = n5;
+        n5 = n6;
+    } else if (n3 > n4 && n3 > n5 && n3 > n6) {
+        m6 = n3;
+        n3 = n4;
+        n4 = n5;
+        n5 = n6;
+    } else if (n4 > n5 && n4 > n6) {
+        m6 = n4;
+        n4 = n5;
+        n5 = n6;
+    } else if (n5 > n6) {
+        m6 = n5;
+        n5 = n6;
+    } else {
+        m6 = n6;
+    }
+    
+    if (n1 > n2 && n1 > n3 && n1 > n4 && n1 > n5) {
+        m5 = n1;
+        n1 = n2;
+        n2 = n3;
+        n3 = n4;
+        n4 = n5;
+    } else if (n2 > n3 && n2 > n4 && n2 > n5) {
+        m5 = n2;
+        n2 = n3;
+        n3 = n4;
+        n4 = n5;
+    } else if (n3 > n4 && n3 > n5) {
+        m5 = n3;
+        n3 = n4;
+        n4 = n5;
+    } else if (n4 > n5) {
+        m5 = n4;
+        n4 = n5;
+    } else {
+        m5 = n5;
+    }
+    
+    if (n1 > n2 && n1 > n3 && n1 > n4) {
+        m4 = n1;
+        n1 = n2;
+        n2 = n3;
+        n3 = n4;
+    } else if (n2 > n3 && n2 > n4) {
+        m4 = n2;
+        n2 = n3;
+        n3 = n4;
+    } else if (n3 > n4) {
+        m4 = n3;
+        n3 = n4;
+    } else {
+        m4 = n4;
+    }
+    
+    if (n1 > n2 && n1 > n3) {
+        m3 = n1;
+        n1 = n2;
+        n2 = n3;
+    } else if (n2 > n3) {
+        m3 = n2;
+        n2 = n3;
+    } else {
+        m3 = n3;
+    }
+    
+    if (n1 > n2) {
+        m2 = n1;
+        n1 = n2
+    } else {
+        m2 = n2;
+    }
+    m1 = n1
+    
+    p.textContent = m1 + ", " + m2 + ", " + m3 + ", " + m4 + ", " + m5 + ", " + m6;
+    if (m1 <= m2 && m2 <= m3 && m3 <= m4 && m4 <= m5 && m5 <= m6) {
+        p.style.backgroundColor = "green";
+    } else {
+        p.style.backgroundColor = "red";
+        console.log("ERROR: ", n1, n2, n3, n4, n5, n6);
+    }
+}
+
+i1.addEventListener("change", patas);
+i2.addEventListener("change", patas);
+i3.addEventListener("change", patas);
+i4.addEventListener("change", patas);
+i5.addEventListener("change", patas);
+i6.addEventListener("change", patas);
+r.addEventListener("click", function() {
+    i1.value = Math.floor(Math.random()*1000)
+    i2.value = Math.floor(Math.random()*1000)
+    i3.value = Math.floor(Math.random()*1000)
+    i4.value = Math.floor(Math.random()*1000)
+    i5.value = Math.floor(Math.random()*1000)
+    i6.value = Math.floor(Math.random()*1000)
+    patas();
+});
+</script>
+</body>
+</html>
