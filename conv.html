@@ -4,6 +4,7 @@
 <body>
   <h1>Convert between Millimeters and Inches in fractional form</h1>
   <h2>Convert from inches to mm</h2>
+  <p>Enter inches like "1 2/8"
   <p>
     <input id="i2m_in" type="text"> in
     = <input id="i2m_mm" type="number" readonly> mm
@@ -22,10 +23,16 @@
   var m2i_in = document.getElementById('m2i_in');
 
   i2m_in.addEventListener('input', function() {
-    var inch = parseInt(i2m_in.value.substring(0, i2m_in.value.indexOf(' ')));
-    var eighth = parseInt(i2m_in.value.substring(i2m_in.value.indexOf(' '), i2m_in.value.indexOf('/')));
-    i2m_mm.value = inch;
-    //i2m_mm.value = ((inch + eighth / 8) * 25.4).toFixed();
+    let inch = parseInt(i2m_in.value.split(" ")[0]);
+    let eighth = i2m_in.value.split(" ")[1];
+
+    if (eighth) {
+      eighth = eighth.split("/");
+      if (eighth[0] && eighth[1]) {
+        inch = inch + parseInt(eighth[0]) / parseInt(eighth[1]);
+      }
+    }
+    i2m_mm.value = inch * 25.4;
   });
   m2i_mm.addEventListener("input", function() {
     var mm = parseFloat(m2i_mm.value);
