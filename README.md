@@ -13,7 +13,7 @@ Uses a lot of if statements to sort five numbers, avoiding loops and arrays
 https://majudhu.github.io/faifuh/patas.html
 
 Generates the if statements for the previous algorithm
-https://majudhu.github.io/faifuh/patas.html
+https://majudhu.github.io/faifuh/patastas.html
 
 
 ## Plain text
