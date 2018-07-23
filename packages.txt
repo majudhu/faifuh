@@ -1,0 +1,14 @@
+basic
+tmux vim aptitude gnome-tweak-tool git
+
+fedora
+sudo dnf install tmux kernel-devel dkms lighttpd lighttpd-fastcgi nodejs nodejs-devel openssl-devel php-cli vim git
+
+intern
+tmux vim nodejs aptitude git
+
+virtualbox
+dkms virtualbox-guest-dkms build-essential module-assistant
+
+ubuntu
+unity-tweak-tool

@@ -1,0 +1,6 @@
+ifconfig.me/ip
+ip.appspot.com
+icanhazip.com
+canihazip.com/s
+api.ipify.org
+wtfismyip.com/text
