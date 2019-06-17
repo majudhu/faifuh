@@ -1,0 +1,188 @@
+/*    COLORS
+//  #45D6A9 NAVBAR
+//  #7CE8C4 ACTIVE
+//  #D0EFE4 HOVER
+//  #197F5D BUTTON
+//  #1EBA82 BUTTON HOVER
+//  #FF0000 RED-1
+//  #CC6060 RED-2
+//  #DBA493 RED-3
+//  #DDC4A8 RED-4
+//  #EDEDCC RED-5
+//  #F5F7E7 RED-6
+*/
+
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-size: 1vw;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+button {
+  font-size: 1.5vw;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 1em;
+  background-color: #197F5D;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1EBA82;
+}
+
+body>div {
+  display: none;
+  position: absolute;
+  left: 10vw;
+  top: 0;
+  margin: 5vw;
+}
+
+h1 {
+  margin: 0;
+  padding: 0 0 0 1em;
+  font-size: 1.5vw;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.thin-rounded-box {
+  border: 1px solid #999;
+  border-radius: 0.3vw;
+}
+
+#navbar {
+  margin: 0;
+  padding: 0;
+  width: 10vw;
+  height: 100vh;
+  background-color: #45D6A9;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+#navbar-title {
+  text-align: center;
+  font-size: 2.6vw;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin: 0;
+  padding: 8vh 0;
+}
+
+#navbar-links p {
+  text-align: center;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 2vw;
+  font-weight: 600;
+  margin: 0 0;
+  padding: 1.5vh 0;
+  cursor: pointer;
+}
+
+#navbar-links p:hover {
+  background-color: #7CE8C4;
+}
+
+#navbar-links p.active {
+  background-color: #7CE8C4;
+}
+
+#home button {
+  height: 20vh;
+  font-size: 6vh;
+}
+
+#home>h1 {
+  top: 25vh;
+}
+
+#home>div {
+  top: 29vh;
+  height: 54vh;
+  display: flex;
+  flex-direction:column;
+}
+
+#home-newsale-button, #home-recentsales-list, #home > h1:nth-of-type(1), #home>div:nth-of-type(1) {
+  width: 25vw;
+  position: absolute;
+  left: 0vw;
+}
+
+#home-addstock-button, #home-lowstock-list, #home > h1:nth-of-type(2), #home>div:nth-of-type(2)  {
+  width: 20vw;
+  position: absolute;
+  left: 30vw;
+}
+
+#home-lowstock-button, #home-nearexpiry-list, #home > h1:nth-of-type(3), #home>div:nth-of-type(3)   {
+  width: 25vw;
+  position: absolute;
+  left: 55vw;
+}
+
+#home-recentsales-list div:hover, #home-lowstock-list > div:hover, #home-nearexpiry-list > div:hover {
+  background-color: #7CE8C4;
+}
+
+
+#home-recentsales-list > div {
+  padding: 2vh 2vw;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  flex: 1;
+}
+
+#home-recentsales-list > div > p { /* item list */
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  overflow: hidden;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 1.1vw;
+}
+
+#home-recentsales-list > div > span {
+  position: absolute;
+  right: 1.5vw;
+  text-align: right;
+  font-size: 1.5vw;
+}
+
+#home-recentsales-list > div > span:nth-child(3) {
+  top: 6vh;
+}
+
+#home-recentsales-list > div > span:nth-child(3) > span:nth-child(1){
+  font-size: 0.9vw;
+}
+
+#home-lowstock-list > div, #home-nearexpiry-list > div {
+  flex: 1;
+  font-size: 1.5vw;
+  overflow: hidden;
+  display: flex;
+  cursor: pointer;
+}
+
+#home-lowstock-list > div > p, #home-nearexpiry-list > div > p {
+  margin: auto;
+}
+
+#home-lowstock-list > div > p:first-child, #home-nearexpiry-list > div > p:first-child {
+  width: 15vw;
+  overflow: hidden;
+}

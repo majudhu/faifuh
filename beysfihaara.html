@@ -3,11 +3,367 @@
 <head>
   <meta charset="UTF-8">
   <title>BEYSFIHAARA</title>
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:200,300,400,500,600,700,800,900|Fira+Sans:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="beysfihaara.css" type="text/css">
   <script defer src="beysfihaara.js"></script>
 </head>
 <body>
+  <div id="navbar">
+    <p id="navbar-title">BEYS<br>FIHAARA</p>
+    <div id="navbar-links">
+      <p id="navbar-home" class="active">HOME</p>
+      <p id="navbar-sales">SALES</p>
+      <p id="navbar-stocks">STOCKS</p>
+      <p id="navbar-products">PRODUCTS</p>
+      <p id="navbar-reports">REPORTS</p>
+    </div>
+  </div>
 
+  <div id="home">
+    <button id="home-newsale-button">NEW SALE</button>
+    <button id="home-addstock-button">ADD STOCK</button>
+    <button id="home-lowstock-button">LOW STOCK REPORT</button>
+    <h1>Recent Sales</h1>
+    <div id="home-recentsales-list" class="thin-rounded-box">
+      <div><p>Panadol, Panadol, Panadol, etc...</p><span> 1:11</span><span><span>MVR</span>10.00</span></div>
+      <div><p>Panadol, Panadol, Panadol, etc...</p><span> 2:30</span><span><span>MVR</span>10.00</span></div>
+      <div><p>Panadol, Panadol, Panadol, etc...</p><span>22:30</span><span><span>MVR</span>10.00</span></div>
+      <div><p>Panadol, Panadol, Panadol, etc...</p><span>22:30</span><span><span>MVR</span>10.00</span></div>
+      <div><p>Panadol, Panadol, Panadol, etc...</p><span>22:30</span><span><span>MVR</span>10.00</span></div>
+    </div>
+    <h1>Low Stocks</h1>
+    <div id="home-lowstock-list" class="thin-rounded-box">
+      <div><p>Panadol 500mg</p><p>25</p></div>
+      <div><p>Parecetemol 500mg</p><p>25</p></div>
+      <div><p>Uphamol 500mg</p><p>25</p></div>
+      <div><p>Vitamin C 500mg</p><p>25</p></div>
+      <div><p>Jullaab 5mg</p><p>25</p></div>
+      <div><p>Citrezene 500mg</p><p>25</p></div>
+      <div><p>Panadol 500mg</p><p>25</p></div>
+    </div>
+    <h1>Near Expiry Stocks</h1>
+    <div id="home-nearexpiry-list"  class="thin-rounded-box">
+      <div><p>Panadol 500mg</p><p>14/06/2019</p></div>
+      <div><p>Parecetemol 500mg</p><p>14/06/2019</p></div>
+      <div><p>Uphamol 500mg</p><p>14/06/2019</p></div>
+      <div><p>Vitamin C 500mg</p><p>14/06/2019</p></div>
+      <div><p>Jullaab 5mg</p><p>14/06/2019</p></div>
+      <div><p>Citrezene 500mg</p><p>14/06/2019</p></div>
+      <div><p>Panadol 500mg</p><p>14/06/2019</p></div>
+    </div>
+  </div>
+
+  <div id="sales">
+    <h1>New Sales</h1>
+    <p id="sales-bill-numbers">
+      <span>1</span>
+      <span>+</span>
+    </p>
+    <table id="sales-bill-table">
+      <thead><tr>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>1</td>
+          <td>Price</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>1</td>
+          <td>Price</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>1</td>
+          <td>Price</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>1</td>
+          <td>Price</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>1</td>
+          <td>Price</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="sales-bill-totals">
+      <div class="key-value-pair">
+        <p>Subtotal:</p>
+        <p>12345.00</p>
+      </div>
+      <div class="key-value-pair">
+        <p>GST:</p>
+        <p>99.00</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Total:</p>
+        <p>99999.00</p>
+      </div>
+    </div>
+    <h1>Item Details</h1>
+    <div class="thin-rounded-box">
+      <div class="key-value-pair">
+        <p>Brand Name</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Dosage</p>
+        <p>500mg</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Generic Name</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Form</p>
+        <p>Tab</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Manufacturer</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Unit Price</p>
+        <p>12345.00</p>
+      </div>
+    </div>
+    <div id="sales-item-expiry-dropdown">
+      <div class="key-value-pair">
+        <p>Expiry</p>
+        <p>01/01/2020</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Stock</p>
+        <p>99999</p>
+      </div>
+    </div>
+    <div id="sales-item-qty-numbox">
+      <div class="key-value-pair">
+        <p>Qty</p>
+        <p>12345</p>
+      </div>
+    </div>
+    <button id="sales-checkout-button">CHECKOUT</button>
+    <button id="sales-remove-item-button">REMOVE ITEM</button>
+    <button id="sales-discard-bill-button">DISCARD BILL</button>
+  </div>
+
+  <div id="stocks">
+    <button id="stocks-add-button">ADD</button>
+    <button id="stocks-remove-button">REMOVE</button>
+    <h1>Product List</h1>
+    <input id="stocks-product-search-textbox">
+    <div id="stocks-products-list" class="thin-rounded-box">
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+      <p>Panadol 500mg</p>
+    </div>
+    <h1>Stock Details</h1>
+    <table id="stock-details-table">
+      <thead><tr>
+        <th>Name</th>
+        <th>Expiry</th>
+        <th>Sold</th>
+        <th>Stock</th>
+        <th>Total</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2019</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2019</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2019</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2019</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2019</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2019</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>Product Details</h1>
+    <div className="thin-rounded-box">
+      <div class="key-value-pair">
+        <p>Brand Name</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Manufacturer</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Generic Name</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Dosage</p>
+        <p>500mg</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Form</p>
+        <p>Tab</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Unit Price</p>
+        <p>12345</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="stocks-add">
+    <h1>Add Stock</h1>
+    <table id="stocks-add-table">
+      <thead><tr>
+        <th>Name</th>
+        <th>Expiry</th>
+        <th>Qty</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2020</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2020</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2020</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Panadol 500mg</td>
+          <td>01/01/2020</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <button id=stocks-add-add-item-button>ADD ITEM</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>Item details</h1>
+    <div className="thin-rounded-box">
+      <div class="key-value-pair">
+        <p>Brand Name</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Dosage</p>
+        <p>500mg</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Generic Name</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Form</p>
+        <p>Tab</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Manufacturer</p>
+        <p>Panadol</p>
+      </div>
+      <div class="key-value-pair">
+        <p>Unit Price</p>
+        <p>12345</p>
+      </div>
+    </div>
+    <button id="stocks-add-remove-item-button">REMOVE ITEM</button>
+    <button id="stocks-add-save-button">SAVE</button>
+    <button id="stocks-add-cancel-button">CANCEL</button>
+  </div>
+
+  <div id="products">
+    <input id="products-search-textbox">
+    <button id="products-new-button">NEW</button>
+    <button id="products-modify-button">MODIFY</button>
+    <table id="products-table">
+      <thead><tr>
+        <th>ID</th>
+        <th>Generic Name</th>
+        <th>Brand Name</th>
+        <th>Manufacturer</th>
+        <th>Dosage</th>
+        <th>Form</th>
+        <th>Price</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+        <tr><td>00001</td><td>Panadol</td><td>Panadol</td><td>Panadol</td><td>500mg</td><td>Tab</td><td>4.00</td></tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
