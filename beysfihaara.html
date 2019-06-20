@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div id="home">
+  <div id="home" class="active">
     <button id="home-newsale-button">NEW SALE</button>
     <button id="home-addstock-button">ADD STOCK</button>
     <button id="home-lowstock-button">LOW STOCK REPORT</button>
@@ -56,10 +56,10 @@
   <div id="sales">
     <h1>New Sales</h1>
     <p id="sales-bill-numbers">
-      <span>1</span>
-      <span>+</span>
+      <button class="active">1</button>
+      <button>+</button>
     </p>
-    <table id="sales-bill-table">
+    <table id="sales-bill-table" class="thin-rounded-box">
       <thead><tr>
         <th>Name</th>
         <th>Qty</th>
@@ -69,31 +69,34 @@
         <tr>
           <td>Panadol 500mg</td>
           <td>1</td>
-          <td>Price</td>
+          <td>1.00</td>
         </tr>
         <tr>
           <td>Panadol 500mg</td>
-          <td>1</td>
-          <td>Price</td>
+          <td>12</td>
+          <td>12.00</td>
         </tr>
         <tr>
           <td>Panadol 500mg</td>
-          <td>1</td>
-          <td>Price</td>
+          <td>123</td>
+          <td>123.00</td>
         </tr>
         <tr>
           <td>Panadol 500mg</td>
-          <td>1</td>
-          <td>Price</td>
+          <td>1234</td>
+          <td>1234.00</td>
         </tr>
         <tr>
           <td>Panadol 500mg</td>
-          <td>1</td>
-          <td>Price</td>
+          <td>12345</td>
+          <td>12345.00</td>
+        </tr>
+        <tr>
+          <td colspan="3"><button id="sales-bill-table-add-button">ADD</td>
         </tr>
       </tbody>
     </table>
-    <div id="sales-bill-totals">
+    <div id="sales-bill-totals" class="thin-rounded-box">
       <div class="key-value-pair">
         <p>Subtotal:</p>
         <p>12345.00</p>
@@ -108,7 +111,7 @@
       </div>
     </div>
     <h1>Item Details</h1>
-    <div class="thin-rounded-box">
+    <div id="sales-bill-item-details" class="thin-rounded-box">
       <div class="key-value-pair">
         <p>Brand Name</p>
         <p>Panadol</p>

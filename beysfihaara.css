@@ -14,12 +14,30 @@
 
 
 body {
-  margin: 0;
-  padding: 0;
   width: 100vw;
   height: 100vh;
   font-size: 1vw;
   font-family: 'Fira Sans', sans-serif;
+}
+
+body, h1, h2, h3, p, table, tr, th, td, a, button {
+  margin: 0;
+  padding: 0;
+}
+
+body > div:not(:first-child)
+{
+  display: none;
+  position: absolute;
+  left: 10vw;
+  top: 0;
+  margin: 5vw;
+  width: 80vw;
+}
+
+body > div:not(:first-child) > *
+{
+  position: absolute;
 }
 
 button {
@@ -30,8 +48,6 @@ button {
   border-radius: 1em;
   background-color: #197F5D;
   color: white;
-  padding: 0;
-  margin: 0;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -40,34 +56,33 @@ button:hover {
   background-color: #1EBA82;
 }
 
-body>div {
-  display: none;
-  position: absolute;
-  left: 10vw;
-  top: 0;
-  margin: 5vw;
-}
-
 h1 {
-  margin: 0;
   padding: 0 0 0 1em;
   font-size: 1.5vw;
   font-weight: 300;
   text-transform: capitalize;
 }
 
-.thin-rounded-box {
-  border: 1px solid #999;
+.thin-rounded-box, table {
+  border: 0.1vw solid #999;
   border-radius: 0.3vw;
 }
 
+.key-value-pair p:nth-child(1) {
+  font-size: 0.6vw;
+  font-weight: 300;
+}
+.key-value-pair p:nth-child(2) {
+  font-size: 1vw;
+}
+
 #navbar {
-  margin: 0;
-  padding: 0;
   width: 10vw;
   height: 100vh;
   background-color: #45D6A9;
   display: block;
+  position: fixed;
+  margin: 0;
   top: 0;
   left: 0;
 }
@@ -77,7 +92,6 @@ h1 {
   font-size: 2.6vw;
   font-weight: 900;
   letter-spacing: -0.05em;
-  margin: 0;
   padding: 8vh 0;
 }
 
@@ -86,7 +100,6 @@ h1 {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 2vw;
   font-weight: 600;
-  margin: 0 0;
   padding: 1.5vh 0;
   cursor: pointer;
 }
@@ -117,38 +130,27 @@ h1 {
 
 #home-newsale-button, #home-recentsales-list, #home > h1:nth-of-type(1), #home>div:nth-of-type(1) {
   width: 25vw;
-  position: absolute;
   left: 0vw;
 }
 
 #home-addstock-button, #home-lowstock-list, #home > h1:nth-of-type(2), #home>div:nth-of-type(2)  {
   width: 20vw;
-  position: absolute;
   left: 30vw;
 }
 
 #home-lowstock-button, #home-nearexpiry-list, #home > h1:nth-of-type(3), #home>div:nth-of-type(3)   {
   width: 25vw;
-  position: absolute;
   left: 55vw;
 }
 
-#home-recentsales-list div:hover, #home-lowstock-list > div:hover, #home-nearexpiry-list > div:hover {
-  background-color: #7CE8C4;
-}
-
-
 #home-recentsales-list > div {
   padding: 2vh 2vw;
-  margin: 0;
   position: relative;
-  cursor: pointer;
+  /*! cursor: pointer; */
   flex: 1;
 }
 
 #home-recentsales-list > div > p { /* item list */
-  margin: 0;
-  padding: 0;
   display: inline-block;
   overflow: hidden;
   font-family: 'Fira Sans Condensed', sans-serif;
@@ -175,7 +177,6 @@ h1 {
   font-size: 1.5vw;
   overflow: hidden;
   display: flex;
-  cursor: pointer;
 }
 
 #home-lowstock-list > div > p, #home-nearexpiry-list > div > p {
@@ -185,4 +186,127 @@ h1 {
 #home-lowstock-list > div > p:first-child, #home-nearexpiry-list > div > p:first-child {
   width: 15vw;
   overflow: hidden;
+}
+
+#sales-bill-numbers {
+  background-color: #197F5D;
+  top: -1vw;
+  left: 10vw;
+  width: 30vw;
+  height: 2.5vw;
+  border-radius: 1.5vw;
+  font-weight: 600;
+  font-size: 2vw;
+  color: white;
+  cursor: pointer;
+  display: flex;
+}
+
+#sales-bill-numbers > button {
+  flex: 1;
+}
+#sales-bill-numbers > button.active {
+  background-color: #1EBA82;
+}
+
+
+#sales-bill-table {
+  border-bottom-right-radius: 0;
+  top: 4vh;
+  left: 0;
+  width: 40vw;
+  height: 73vh;
+  overflow-y: scroll;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#sales-bill-table th {
+  font-size: 1.5vw;
+  font-weight: 500;
+  height: 5vh;
+  background-color: #45d6a9;
+}
+
+#sales-bill-table th:nth-child(1), #sales-bill-table td:nth-child(1) {
+  width: 60%;
+}
+#sales-bill-table th:nth-child(2), #sales-bill-table td:nth-child(2) {
+  width: 15%;
+}
+#sales-bill-table th:nth-child(3), #sales-bill-table td:nth-child(3) {
+  width: 25%;
+}
+
+#sales-bill-table td:not(:nth-child(1)) {
+  text-align: right;
+}
+
+#sales-bill-table tr:not(:last-child) td {
+  font-size: 1.5vw;
+  height: 7vh;
+  padding: 0 0.5vw;
+}
+
+#sales-bill-table tr:not(:last-child).active {
+  background-color: #7CE8C4;
+}
+
+
+#sales-bill-table tr:last-child td {
+  min-height: 6vh;
+  padding: 0.5vh 1vw;
+  vertical-align: top;
+}
+
+#sales-bill-table-add-button {
+  font-size: 1.5vw;
+  width: 10vw;
+  height: 5vh;
+}
+
+#sales-bill-totals {
+  top: 77vh;
+  right: 40vw;
+  display: flex;
+  height: 5vh;
+  width: 20vw;
+  border-top: none;
+  border-radius: 0 0 1vw 1vw;
+}
+
+#sales-bill-totals > div {
+  flex: 1;
+  margin: auto;
+  padding: 0 1vw;
+}
+
+#sales > h1:nth-of-type(2), #sales-bill-item-details, #sales-item-expiry-dropdown, #sales-item-qty-numbox, #sales-checkout-button {
+  position: absolute;
+  left: 50vw;
+}
+
+#sales-bill-item-details {
+  top: 10vh;
+  width: 50vw;
+  height: 20vh;
+  overflow: hidden;
+}
+
+#sales-item-expiry-dropdown {
+  top: 40vh;
+}
+
+#sales-remove-item-button, #sales-discard-bill-button {
+  position: absolute;
+  left: 60vw;
+}
+
+/* clickable */
+#home-recentsales-list div:hover,
+#home-lowstock-list > div:hover,
+#home-nearexpiry-list > div:hover,
+#sales-bill-table tr:not(:last-child):hover {
+  background-color: #7CE8C4;
+  cursor: pointer;
 }

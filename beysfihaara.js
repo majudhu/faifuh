@@ -1,42 +1,52 @@
-// set active class on click
-function setActiveClass(t) {
-  for (let c of t.parentElement.children) {
-    c.className = '';
+document.getElementById('navbar-links').addEventListener('click', e => {
+  for (let link of e.target.parentElement.children) {
+    link.className = '';
   }
-  t.className = 'active';
-}
+  e.target.className = 'active';
 
-function navigateToPage(name) {
   for (let page of document.body.children) {
-    if (page.id == 'navbar' || page.id == name) {
+    if ((page.id == 'navbar') || (page.id == e.target.textContent.toLowerCase())) {
       page.style.display = 'block';
     } else {
       page.style.display = 'none';
     }
   }
-}
+})
 
-document.getElementById('navbar-home').addEventListener('click', e => {
-  setActiveClass(e.target);
-  navigateToPage('home');
+document.getElementById('sales-bill-numbers').addEventListener('click', e => {
+  if (e.target.textContent == '+') {
+    let newspan = document.createElement('button');
+    newspan.textContent = e.target.parentElement.children.length;
+    e.target.insertAdjacentElement('beforebegin', newspan);
+  } else {
+    for (let n of e.target.parentElement.children) {
+      n.className = '';
+    }
+    e.target.className = 'active';
+  }
 });
 
-document.getElementById('navbar-sales').addEventListener('click', e => {
-  setActiveClass(e.target);
-  navigateToPage('sales');
+document.getElementById('sales-bill-table').addEventListener('click', e => {
+  if (e.target.tagName == "TD" && e.target.colSpan == 1) {
+    for (let row of e.target.parentElement.parentElement.rows) {
+      row.className = '';
+    }
+    e.target.parentElement.className = 'active';
+  }
 });
 
-document.getElementById('navbar-stocks').addEventListener('click', e => {
-  setActiveClass(e.target);
-  navigateToPage('stocks');
-});
+document.getElementById('sales-bill-table-add-button').addEventListener('click', e => {
+  let newrow = document.createElement('tr');
+  newrow.insertCell();
+  newrow.insertCell();
+  newrow.insertCell();
+  newrow.cells[0].textContent = 'Panadol 500mg';
+  newrow.cells[1].textContent = '1';
+  newrow.cells[2].textContent = '1.00';
+  newrow.className = 'active';
+  for (let row of e.target.parentElement.parentElement.parentElement.rows) {
+    row.className = '';
+  }
+  e.target.parentElement.parentElement.insertAdjacentElement('beforebegin', newrow);
 
-document.getElementById('navbar-products').addEventListener('click', e => {
-  setActiveClass(e.target);
-  navigateToPage('products');
-});
-
-document.getElementById('navbar-reports').addEventListener('click', e => {
-  setActiveClass(e.target);
-  navigateToPage('reports');
 });
