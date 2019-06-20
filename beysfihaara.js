@@ -14,14 +14,15 @@ document.getElementById('navbar-links').addEventListener('click', e => {
 })
 
 document.getElementById('sales-bill-numbers').addEventListener('click', e => {
+  for (let n of e.target.parentElement.children) {
+    n.className = '';
+  }
   if (e.target.textContent == '+') {
-    let newspan = document.createElement('button');
-    newspan.textContent = e.target.parentElement.children.length;
-    e.target.insertAdjacentElement('beforebegin', newspan);
+    let newbutton = document.createElement('button');
+    newbutton.textContent = e.target.parentElement.children.length;
+    e.target.insertAdjacentElement('beforebegin', newbutton);
+    newbutton.className = 'active';
   } else {
-    for (let n of e.target.parentElement.children) {
-      n.className = '';
-    }
     e.target.className = 'active';
   }
 });
@@ -48,5 +49,29 @@ document.getElementById('sales-bill-table-add-button').addEventListener('click',
     row.className = '';
   }
   e.target.parentElement.parentElement.insertAdjacentElement('beforebegin', newrow);
+  e.target.scrollIntoView();
+});
 
+document.getElementById('sales-remove-item-button').addEventListener('click', e => {
+  for (let row of document.getElementById('sales-bill-table').tBodies[0].rows) {
+    if (row.className == 'active') {
+      if (row.previousElementSibling && row.previousElementSibling.cells && row.previousElementSibling.cells[0]) {
+        row.previousElementSibling.cells[0].click();
+      } else if (row.nextElementSibling && row.nextElementSibling.cells && row.nextElementSibling.cells[0]){
+        row.nextElementSibling.cells[0].click();
+      }
+      row.remove();
+    }
+  }
+});
+
+document.getElementById('sales-discard-bill-button').addEventListener('click', e => {
+  let bill = document.getElementById('sales-bill-table').tBodies[0];
+  while (bill.rows.length > 1) {
+    bill.rows[0].remove();
+  }
+});
+
+document.getElementById('sales-checkout-button').addEventListener('click', e => {
+  document.getElementById('sales-discard-bill-button').click();
 });

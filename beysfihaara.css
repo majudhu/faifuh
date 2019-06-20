@@ -12,6 +12,42 @@
 //  #F5F7E7 RED-6
 */
 
+button, #sales-bill-numbers {
+  background-color: #197f5d;
+}
+
+button:hover {
+  background-color: #1eba82;
+}
+
+button.active {
+  background-color: #1eba82;
+}
+
+button.danger {
+  background-color: #AB1B1B;
+}
+
+button.danger:hover {
+  background-color: red;
+}
+
+table th, #navbar {
+  background-color: #45D6A9;
+}
+
+tr.active {
+  background-color: #7ce8c4;
+}
+
+/* clickable */
+#home-recentsales-list > div:hover,
+#home-lowstock-list > div:hover,
+#home-nearexpiry-list > div:hover,
+#sales-bill-table tr:not(:last-child):hover:not(.active) {
+  background-color: #d0efe4;
+  cursor: pointer;
+}
 
 body {
   width: 100vw;
@@ -46,14 +82,9 @@ button {
   font-weight: 600;
   border: none;
   border-radius: 1em;
-  background-color: #197F5D;
   color: white;
   text-transform: uppercase;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: #1EBA82;
 }
 
 h1 {
@@ -66,20 +97,24 @@ h1 {
 .thin-rounded-box, table {
   border: 0.1vw solid #999;
   border-radius: 0.3vw;
+  overflow: hidden;
+}
+
+.key-value-pair {
+  padding: 0.5vh 0.5vw;
 }
 
 .key-value-pair p:nth-child(1) {
-  font-size: 0.6vw;
+  font-size: 1vw;
   font-weight: 300;
 }
 .key-value-pair p:nth-child(2) {
-  font-size: 1vw;
+  font-size: 1.5vw;
 }
 
 #navbar {
   width: 10vw;
   height: 100vh;
-  background-color: #45D6A9;
   display: block;
   position: fixed;
   margin: 0;
@@ -104,17 +139,13 @@ h1 {
   cursor: pointer;
 }
 
-#navbar-links p:hover {
-  background-color: #7CE8C4;
-}
-
-#navbar-links p.active {
-  background-color: #7CE8C4;
+#navbar-links p:hover, #navbar-links p.active {
+  background-color: #7ce8c4;
 }
 
 #home button {
   height: 20vh;
-  font-size: 6vh;
+  font-size: 3vw;
 }
 
 #home>h1 {
@@ -146,7 +177,6 @@ h1 {
 #home-recentsales-list > div {
   padding: 2vh 2vw;
   position: relative;
-  /*! cursor: pointer; */
   flex: 1;
 }
 
@@ -189,10 +219,9 @@ h1 {
 }
 
 #sales-bill-numbers {
-  background-color: #197F5D;
   top: -1vw;
   left: 10vw;
-  width: 30vw;
+  width: 40vw;
   height: 2.5vw;
   border-radius: 1.5vw;
   font-weight: 600;
@@ -205,53 +234,52 @@ h1 {
 #sales-bill-numbers > button {
   flex: 1;
 }
-#sales-bill-numbers > button.active {
-  background-color: #1EBA82;
-}
-
 
 #sales-bill-table {
   border-bottom-right-radius: 0;
   top: 4vh;
   left: 0;
-  width: 40vw;
   height: 73vh;
-  overflow-y: scroll;
-  border-collapse: collapse;
   border-spacing: 0;
+  table-layout: fixed;
 }
 
 #sales-bill-table th {
   font-size: 1.5vw;
   font-weight: 500;
   height: 5vh;
-  background-color: #45d6a9;
 }
 
 #sales-bill-table th:nth-child(1), #sales-bill-table td:nth-child(1) {
-  width: 60%;
+  width: 30vw;
 }
 #sales-bill-table th:nth-child(2), #sales-bill-table td:nth-child(2) {
-  width: 15%;
+  width: 10vw;
 }
 #sales-bill-table th:nth-child(3), #sales-bill-table td:nth-child(3) {
-  width: 25%;
+  width: 9vw;
 }
 
-#sales-bill-table td:not(:nth-child(1)) {
-  text-align: right;
+#sales-bill-table > tbody  {
+  display: block;
+  overflow-y: scroll;
+  height: 67.6vh;
+  width: 49vw;
 }
 
+#sales-bill-table tr {
+  display:table;
+}
 #sales-bill-table tr:not(:last-child) td {
+  overflow: hidden;
   font-size: 1.5vw;
   height: 7vh;
   padding: 0 0.5vw;
 }
 
-#sales-bill-table tr:not(:last-child).active {
-  background-color: #7CE8C4;
+#sales-bill-table td:not(:nth-child(1)) {
+  text-align: right;
 }
-
 
 #sales-bill-table tr:last-child td {
   min-height: 6vh;
@@ -267,10 +295,10 @@ h1 {
 
 #sales-bill-totals {
   top: 77vh;
-  right: 40vw;
+  right: 30.9vw;
   display: flex;
-  height: 5vh;
-  width: 20vw;
+  height: 7vh;
+  width: 25vw;
   border-top: none;
   border-radius: 0 0 1vw 1vw;
 }
@@ -282,31 +310,53 @@ h1 {
 }
 
 #sales > h1:nth-of-type(2), #sales-bill-item-details, #sales-item-expiry-dropdown, #sales-item-qty-numbox, #sales-checkout-button {
-  position: absolute;
-  left: 50vw;
+  left: 55vw;
 }
 
 #sales-bill-item-details {
-  top: 10vh;
-  width: 50vw;
+  top: 4vh;
+  width: 25vw;
   height: 20vh;
-  overflow: hidden;
+  display: grid;
+  grid-template: auto / 17vw auto;
 }
 
-#sales-item-expiry-dropdown {
+
+#sales-item-expiry-dropdown, #sales-item-qty-numbox {
+  top: 30vh;
+}
+
+#sales-checkout-button,#sales-remove-item-button {
   top: 40vh;
 }
 
-#sales-remove-item-button, #sales-discard-bill-button {
-  position: absolute;
-  left: 60vw;
+#sales-item-qty-numbox, #sales-remove-item-button, #sales-discard-bill-button {
+  left: 73vw;
+}
+#sales-discard-bill-button {
+  top: 46vh;
 }
 
-/* clickable */
-#home-recentsales-list div:hover,
-#home-lowstock-list > div:hover,
-#home-nearexpiry-list > div:hover,
-#sales-bill-table tr:not(:last-child):hover {
-  background-color: #7CE8C4;
-  cursor: pointer;
+#sales-item-expiry-dropdown {
+  width: 15vw;
+  display: flex;
+}
+#sales-item-expiry-dropdown > div {
+  flex: 1;
+}
+
+#sales-item-qty-numbox {
+  width: 7vw;
+}
+
+#sales-checkout-button {
+  width: 15vw;
+  height: 10vh;
+  font-size: 2vw;
+}
+
+#sales-remove-item-button, #sales-discard-bill-button {
+  width: 7vw;
+  font-size: 1vw;
+  height: 4vh;
 }
