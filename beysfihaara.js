@@ -147,3 +147,8 @@ document.getElementById('sales-discard-bill-button').addEventListener('click', e
 document.getElementById('sales-checkout-button').addEventListener('click', e => {
   document.getElementById('sales-discard-bill-button').click();
 });
+
+document.getElementById('stocks-add-button').addEventListener('click', e => {
+  document.getElementById('stocks').style.display = 'none';
+  document.getElementById('stocks-add').style.display = 'block';
+});

@@ -331,7 +331,7 @@ input {
   cursor: unset;
 }
 
-#sales-bill-table-add-button {
+#sales-bill-table-add-button, #stocks-add-add-item-button {
   font-size: 1.5vw;
   width: 10vw;
   height: 5vh;
@@ -357,7 +357,7 @@ input {
   left: 53vw;
 }
 
-#sales-bill-item-details {
+#sales-bill-item-details, #stocks-add-item-details {
   top: 4vh;
   width: 27vw;
   height: 20vh;
@@ -499,4 +499,83 @@ input {
 
 #stocks-product-details div:nth-child(2) {
   grid-column: span 3;
+}
+
+#stocks-add-table {
+  top: 4vh;
+}
+
+#stocks-add-table tbody {
+  height: 74vh;
+}
+
+#stocks-add-table tr th:nth-child(1), #stocks-add-table tr td:nth-child(1) {
+  width: 34vw;
+}
+#stocks-add-table tr th:nth-child(2), #stocks-add-table tr td:nth-child(2) {
+  width: 8vw;
+}
+#stocks-add-table tr th:nth-child(3), #stocks-add-table tr td:nth-child(3) {
+  width: 4w;
+}
+
+#stocks-add-table tr:last-child:hover {
+  background-color: unset;
+  cursor: unset;
+}
+
+
+#stocks-add h1:nth-of-type(2), #stocks-add-item-details, #stocks-add-remove-item-button, #stocks-add-save-button {
+  left: 53vw;
+}
+
+#stocks-add-remove-item-button {
+  top: 29vh;
+  height: 5vh;
+  width: 27vw;
+}
+
+#stocks-add-save-button, #stocks-add-cancel-button {
+  bottom: -83vh;
+  height: 10vh;
+  font-size: 2vw;
+}
+
+#stocks-add-save-button {
+  width: 16vw;
+}
+
+#stocks-add-cancel-button {
+  left: 72vw;
+  width: 8vw;
+}
+#products-table {
+  font-size: 1vw;  
+}
+#products-table tbody {
+  height: 78vh;
+}
+#products-table tr th:nth-of-type(1), #products-table tr td:nth-of-type(1) {
+  width: 3vw;
+}
+#products-table tr th:nth-of-type(2), #products-table tr td:nth-of-type(2) {
+  width: 22vw;
+}
+#products-table tr th:nth-of-type(3), #products-table tr td:nth-of-type(3) {
+  width: 20vw;
+}
+#products-table tr th:nth-of-type(4), #products-table tr td:nth-of-type(4) {
+  width: 15vw;
+}
+#products-table tr th:nth-of-type(5), #products-table tr td:nth-of-type(5) {
+  width: 5vw;
+}
+#products-table tr th:nth-of-type(6), #products-table tr td:nth-of-type(6) {
+  width: 3vw;
+}
+#products-table tr th:nth-of-type(7), #products-table tr td:nth-of-type(7) {
+  width: 5vw;
+}
+#products-table tr th:nth-of-type(8), #products-table tr td:nth-of-type(8) {
+  width: 5vw;
 }
