@@ -419,7 +419,7 @@ input {
 }
 
 #stocks-details-table, #stocks-product-details, #stocks > h1:nth-of-type(2), #stocks > h1:nth-of-type(3) {
-  left: 53vh;
+  left: 31vw;
 }
 
 #stocks-add-button, #stocks-remove-button {
