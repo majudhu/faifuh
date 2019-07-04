@@ -152,3 +152,8 @@ document.getElementById('stocks-add-button').addEventListener('click', e => {
   document.getElementById('stocks').style.display = 'none';
   document.getElementById('stocks-add').style.display = 'block';
 });
+
+document.getElementById('products-new-button').addEventListener('click', e => {
+  document.getElementById('products').style.display = "none";
+  document.getElementById('products-new').style.display = "block";
+});

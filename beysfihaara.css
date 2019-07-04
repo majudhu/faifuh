@@ -598,3 +598,22 @@ input {
 #products-table tr th:nth-of-type(8), #products-table tr td:nth-of-type(8) {
   width: 5vw;
 }
+
+#products-new > div {
+  top: 7vh;
+}
+
+#products-new input {
+  padding: 0.5vw;
+  width: 25vw;
+}
+
+#products-new button {
+  top:70vh;
+  width: 10vw;
+  height: 10vh;
+}
+
+#products-new-back-button {
+  left: 15vw;
+}
