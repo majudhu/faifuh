@@ -549,11 +549,30 @@ input {
   left: 72vw;
   width: 8vw;
 }
+
+#products-search-textbox {
+  height: 5vh;
+  width: 20vw;
+}
+
+#products-new-button {
+  height: 6vh;
+  left: 25vw;
+  width: 10vw;
+}
+
+#products-modify-button {
+  height: 6vh;
+  left: 38vw;
+  width: 10vw;
+}
+
 #products-table {
   font-size: 1vw;  
+  top: 8vh;
 }
 #products-table tbody {
-  height: 78vh;
+  height: 70vh;
 }
 #products-table tr th:nth-of-type(1), #products-table tr td:nth-of-type(1) {
   width: 3vw;
