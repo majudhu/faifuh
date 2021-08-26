@@ -21,22 +21,40 @@
     <script>
       document.querySelectorAll("input").forEach((input) =>
         input.addEventListener("input", function () {
+          const t = input.id.slice(0, 3);
+          const n = input.id.slice(3);
           const v = {
-            hex: () => parseInt("0x" + input.value),
-            dec: () => parseInt(input.value),
-            per: () => parseInt(input.value * 2.55),
-          }[input.id.slice(0, 3)]();
+            hex: parseInt("0x" + input.value),
+            dec: parseInt(input.value),
+            per: parseInt(input.value) * 2.55,
+          }[t];
 
-          ["hex", "dec", "per"]
-            .filter((t) => t != input.id.slice(0, 3))
-            .forEach(
-              (i) =>
-                (document.getElementById(i + input.id.slice(3)).value = {
-                  hex: () => v.toString(16),
-                  dec: () => v,
-                  per: () => (v / 2.55).toFixed(1),
-                }[i]())
-            );
+          if (t != "hex") {
+            document.getElementById("hex" + n).value = Math.round(v).toString(16,0);
+          }
+          if (t != "dec") {
+            document.getElementById("dec" + n).value = v.toFixed(0);
+          }
+          if (t != "per") {
+            document.getElementById("per" + n).value = (v / 2.55).toFixed(1);
+          }
+
+          // const v = {
+          //   hex: () => parseInt("0x" + input.value),
+          //   dec: () => parseInt(input.value),
+          //   per: () => parseInt(input.value) * 2.55,
+          // }[input.id.slice(0, 3)]();
+
+          // ["hex", "dec", "per"]
+          //   .filter((t) => t != input.id.slice(0, 3))
+          //   .forEach(
+          //     (i) =>
+          //       (document.getElementById(i + input.id.slice(3)).value = {
+          //         hex: () => Math.round(v).toString(16),
+          //         dec: () => v.toFixed(0),
+          //         per: () => (v / 2.55).toFixed(1),
+          //       }[i]())
+          //   );
         })
       );
     </script>
