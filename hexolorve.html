@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>convulator</title>
+  </head>
+  <body>
+    <h1>Convert between hex, decimal and percentage</h1>
+    <p>
+      Hex1:<input id="hex1" type="text" />Hex2:<input id="hex2" type="text" />
+      Hex3:<input id="hex3" type="text" />
+    </p>
+    <p>
+      Dec1:<input id="dec1" type="text" /> Dec3:<input id="dec3" type="text" />
+      Dec2:<input id="dec2" type="text" />
+    </p>
+    <p>
+      Per1:<input id="per1" type="text" /> Per2:<input id="per2" type="text" />
+      Per3:<input id="per3" type="text" />
+    </p>
+
+    <script>
+      document.querySelectorAll("input").forEach((input) =>
+        input.addEventListener("input", function () {
+          const v = {
+            hex: () => parseInt("0x" + input.value),
+            dec: () => parseInt(input.value),
+            per: () => parseInt(input.value * 2.55),
+          }[input.id.slice(0, 3)]();
+
+          ["hex", "dec", "per"]
+            .filter((t) => t != input.id.slice(0, 3))
+            .forEach(
+              (i) =>
+                (document.getElementById(i + input.id.slice(3)).value = {
+                  hex: () => v.toString(16),
+                  dec: () => v,
+                  per: () => (v / 2.55).toFixed(1),
+                }[i]())
+            );
+        })
+      );
+    </script>
+  </body>
+</html>
