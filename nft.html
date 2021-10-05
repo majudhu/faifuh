@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ethereum ERC-721 NFT miniting cost calculator</title>
+  </head>
+  <body>
+    <p>
+      Size: <input id="size" type="number" value="1" />
+      <select id="size_unit">
+        <option value="b">Bytes</option>
+        <option value="k">KB</option>
+        <option value="m">MB</option>
+        <option value="g">GB</option>
+      </select>
+    </p>
+    <p>
+      Gas Fee: <input id="gas_price" type="number" />
+      <select id="gas_price_unit">
+        <option value="gwei">Gwei</option>
+        <option value="eth">Wei</option>
+        <option value="wei">Wei</option>
+      </select>
+      <small>
+        <a href="https://etherscan.io/gastracker">etherscan.io/gastracker</a>
+        <a href="https://ethgasstation.info/">ethgasstation.info</a>
+      </small>
+    </p>
+    <p>USD/ETH: <input id="xch" type="number" /></p>
+    <p>Minting fee:</p>
+    <p>USD <span id="cost_usd"></span></p>
+    <p>Eth <span id="cost_eth"></span></p>
+    <p>Gwei <span id="cost_gwei"></span></p>
+    <p>Gas <span id="cost_gas"></span></p>
+    <script>
+      const byte_scale = { b: 1, k: 1024, m: 1024 ** 2, g: 1024 ** 3 };
+      const eth_scale = { gwei: 10 ** 9, eth: 1, wei: 10 ** 18 };
+
+      // https://levelup.gitconnected.com/technical-deep-dive-into-ethereums-nft-erc-721-70ee37f09104
+      // https://ethereum.github.io/yellowpaper/paper.pdf
+      const transaction_base_fee = 21000;
+      const sstore_byte_fee = 20000 / 32;
+      const format = new Intl.NumberFormat("en-us", {
+        maximumSignificantDigits: 4,
+      }).format;
+
+      const size = document.querySelector("#size");
+      const size_unit = document.querySelector("#size_unit");
+      const gas_price = document.querySelector("#gas_price");
+      const gas_price_unit = document.querySelector("#gas_price_unit");
+      const xch = document.querySelector("#xch");
+      const cost_usd = document.querySelector("#cost_usd");
+      const cost_eth = document.querySelector("#cost_eth");
+      const cost_gwei = document.querySelector("#cost_gwei");
+      const cost_gas = document.querySelector("#cost_gas");
+
+      function calculate() {
+        const gas =
+          transaction_base_fee +
+          sstore_byte_fee *
+            parseFloat(size.value) *
+            byte_scale[size_unit.value];
+        const gwei = gas * parseFloat(gas_price.value);
+        const eth = gwei * 10 ** -9;
+        const usd = eth * parseFloat(xch.value);
+        cost_gas.textContent = format(gas);
+        cost_gwei.textContent = format(gwei);
+        cost_eth.textContent = format(eth);
+        cost_usd.textContent = format(usd);
+      }
+
+      size.addEventListener("input", calculate);
+      size_unit.addEventListener("change", calculate);
+      gas_price.addEventListener("input", calculate);
+      gas_price_unit.addEventListener("change", calculate);
+      xch.addEventListener("input", calculate);
+
+      Promise.all([
+        fetch("https://ethgasstation.info/api/ethgasAPI.json")
+          .then((res) => res.json())
+          .then((json) => (gas_price.value = json.fast / 10)),
+        fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+        )
+          .then((res) => res.json())
+          .then((json) => (xch.value = json.ethereum.usd)),
+      ]).then(calculate);
+    </script>
+  </body>
+</html>
