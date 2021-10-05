@@ -14,10 +14,10 @@
       </select>
     </p>
     <p>
-      Gas Fee: <input id="gas_price" type="number" />
+      Gas price: <input id="gas_price" type="number" />
       <select id="gas_price_unit">
         <option value="gwei">Gwei</option>
-        <option value="eth">Wei</option>
+        <option value="eth">Eth</option>
         <option value="wei">Wei</option>
       </select>
       <small>
@@ -59,7 +59,9 @@
           sstore_byte_fee *
             parseFloat(size.value) *
             byte_scale[size_unit.value];
-        const gwei = gas * parseFloat(gas_price.value);
+        const gwei =
+          (gas * parseFloat(gas_price.value) * 10 ** 9) /
+          eth_scale[gas_price_unit.value];
         const eth = gwei * 10 ** -9;
         const usd = eth * parseFloat(xch.value);
         cost_gas.textContent = format(gas);
