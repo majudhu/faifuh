@@ -19,6 +19,9 @@ Generates the if statements for the previous algorithm
 Converts between hex, decimal and percentage values
 <https://majudhu.github.io/faifuh/hexolorve.html>
 
+Ethereum ERC-721 NFT minting cost calculator
+<https://majudhu.github.io/faifuh/nft.html>
+
 ## Plain text
 
 curlip.txt contains simple IP Address API endpoints
