@@ -1,6 +1,6 @@
 # faifuh
 
-Some html/js calculations and helpers designed for my personal use
+Some html/js calculations and helpers designed for my personal use [GitHub repo](https://github.com/majudhu/faifuh)
 
 ## HTML/JS pages
 
